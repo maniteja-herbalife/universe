@@ -18,7 +18,7 @@ export default `
     } else {
       //TODO https support
       let request = (url.startsWith('https') ? require('https') : require('http')).get(url, function (resp) {
-        if (resp.statusCode === 200) {
+        if (resp.statusCode === 200 || resp.statusCode === 304) {
           let rawData = '';
           resp.setEncoding('utf8');
           resp.on('data', chunk => {
